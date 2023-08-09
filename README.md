@@ -5,9 +5,9 @@ When running vitest in the main project, 'react' dependency is not resolved, con
 
 ## Steps
 1. In 'lib' directory, run `yarn install`.
-2. In 'main' project, run `yarn install`.
-3. In 'main' project, run `yarn run test` : notice that : we get an error saying that "Cannot find module 'react'".
-4. You may run `yarn run start` to run vite, and notice that the same component as the one in the test ('ReactSelectWrapperConsumer') works fine.
+2. In 'main' directory, run `yarn install`.
+3. In 'main' directory, run `yarn run test` : notice that : we get an error saying that "Cannot find module 'react'".
+4. You may run, still in 'main' directory, `yarn run start` to run vite, navigate to the given url, and notice that the same component as the one in the test ('ReactSelectWrapperConsumer') works fine.
 
 ## Description of the problem
 The 'main' project, and the sample test, rely on a 'ReactSelectWrapperConsumer' component in 'main' project which depends on a 'ReactSelectWrapper' component defined in 'lib' project, which depends on [react-select](https://www.npmjs.com/package/react-select) component installed as a dependency in 'lib', which depends on [this package](https://www.npmjs.com/package/use-isomorphic-layout-effect), which relies on the 'react' package, provided in the dependencies the main project.
